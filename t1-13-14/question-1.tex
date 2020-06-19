@@ -1,0 +1,51 @@
+\section{}
+\subsection{A}
+\begin{minipage}[t]{.33\textwidth}
+    \begin{lstlisting}[caption=Thread 1]
+x = x + 1;
+y = y + 1;
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{.33\textwidth}
+    \begin{lstlisting}[caption=Thread 2]
+x = y + 1;
+y = 2;
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{.33\textwidth}
+    \begin{lstlisting}[caption=Thread 3]
+z = x + y;
+    \end{lstlisting}
+\end{minipage}
+
+\begin{lstlisting}
+x: 1, 2, 3, 4
+y: 1, 2, 3
+z: 0, 1, 2, 3, 4, 5, 6, 7
+\end{lstlisting}
+
+\subsection{B}
+\begin{minipage}[t]{.33\textwidth}
+    \begin{lstlisting}[caption=Thread 1]
+x = x + 1;
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{.33\textwidth}
+    \begin{lstlisting}[caption=Thread 2]
+y = y + 1;
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}[t]{.33\textwidth}
+    \begin{lstlisting}[caption=Thread 3]
+x = 5;
+y = x + 1;
+    \end{lstlisting}
+\end{minipage}
+
+\begin{lstlisting}
+x: 1, 5, 6
+y: 1, 2, 6, 7
+(x, y): (1, 1), (1, 2),
+        (5, 1), (5, 6),
+        (6, 1), (6, 7)
+\end{lstlisting}

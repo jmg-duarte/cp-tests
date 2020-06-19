@@ -1,0 +1,21 @@
+\section{}
+
+\begin{lstlisting}
+public class BarrierN {
+    private int a, b;
+
+    public BarrierN (int howmany) {
+        b = howmany;
+        a = 0;
+    }
+
+    public synchronized void arrive() {
+        a++;
+        if (a < b) {
+            this.wait();
+            return;
+        }
+        this.notifyAll();
+    }
+}
+\end{lstlisting}

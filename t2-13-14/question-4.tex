@@ -1,0 +1,13 @@
+\section{}
+It compiles, runs and terminates with
+\begin{lstlisting}[basicstyle=\ttfamily]
+Exception in thread "main"
+java.lang.IllegalMonitorStateException
+    at java.lang.Object.wait(Native Method)
+    at java.lang.Object.wait(Object.java:502)
+    at WaNot.amethod(WaNot.java:11)
+    at WaNot.main(WaNot.java:5)
+\end{lstlisting}
+
+This happens because the thread is not the owner of the object monitor.
+If \texttt{amethod} was \texttt{synchronized} the program just blocks.

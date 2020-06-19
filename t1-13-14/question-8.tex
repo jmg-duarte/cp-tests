@@ -1,0 +1,10 @@
+\section{}
+
+\subsection{a}
+In the line 11, the program read the values $[20, 25, 30]$,
+before $M_2$ runs the \texttt{credit} statement,
+$M_1$ \texttt{transferTo} is able to execute completely and then $M_2$ \texttt{credit} statement runs,
+adding an old interest value.
+
+\subsection{b}
+The way it is written the program cannot deadlock, unless the client can have accounts that are references to other accounts.
