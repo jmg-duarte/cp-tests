@@ -3,6 +3,7 @@
 \author{José Duarte}
 \usepackage{geometry}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{hyperref}
 
 \geometry{
@@ -28,7 +29,7 @@
     \item \textbf{D} - RAW, WAR and WAW affect the correctness of the program given the program is only correct if the dependency relationship is uphold.
     \item \textbf{D} - If we run some iterations of the loop we see \texttt{a[1][0] = a[0][1]}, \texttt{a[1][2] = a[0][3]}, \texttt{a[2][0] = a[1][1]}, \texttt{a[2][2] = a[1][3]}.
     Thus there are no dependencies between loop iterations.
-    \item \textbf{A} - If we assume the whole program takes $T$ time to run we have:
+    \item \textbf{D} - If we assume the whole program takes $T$ time to run we have:
     \begin{equation*}
         \begin{split}
             0.5 T + 0.5\frac{T}{100} & = 0.505T \\
@@ -57,7 +58,29 @@
     \item \textbf{B} - We validate the previous and current nodes to check for deletions and "chain" correctness, that is \texttt{pred.next == curr}.
     \item \textbf{A} - We see if the key exists, if it does we check if it is not marked for deletion.
     \item \textbf{B} - The $LockSet$ is initialized to the universal set.
-    \item \textbf{?} -
+    \item \textbf{D} - We first compute the maximal views of the threads:
+    \begin{equation*}
+        \begin{split}
+            M(T_1) & = V_1 \\
+            M(T_2) & = V_2 \\
+            M(T_3) & = V_4
+        \end{split}
+    \end{equation*}
+    Comparing $M(T_1)$ with the other thread's views:
+    \begin{equation*}
+        \begin{split}
+            V_2 & \subseteq M(T_1) \\
+            V_3 & \subseteq M(T_1)
+        \end{split}
+    \end{equation*}
+    Comparing $M(T_2)$ with the other thread's views:
+    \begin{equation*}
+        \begin{split}
+            M(T_2) & \subseteq V_1 \\
+            V_3 \nsubseteq M(T_2) & \wedge M(T_2) \nsubseteq V_3
+        \end{split}
+    \end{equation*}
+    We have an high-level data race.
     \item \textbf{A} - When a new process enters a system, it must declare the maximum number of instances of each resource type that it may ever claim;
     clearly, that number may not exceed the total number of resources in the systems.\footnote{\url{https://en.wikipedia.org/wiki/Banker's_algorithm}}
     \item \textbf{C} - See the labs.
