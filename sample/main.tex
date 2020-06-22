@@ -3,6 +3,7 @@
 \author{José Duarte}
 \usepackage{geometry}
 \usepackage{amsmath}
+\usepackage{hyperref}
 
 \geometry{
     top=15mm,
@@ -13,34 +14,53 @@
 \begin{document}
 \maketitle
 \begin{enumerate}
-    \item C
-    \item C
-    \item C
-    \item C
-    \item D
-    \item C
-    \item B
-    \item A
-    \item B
-    \item A
-    \item D
-    \item B
-    \item D
-    \item A
-    \item D
-    \item D
-    \item B
-    \item D
-    \item D
-    \item D
-    \item C
-    \item A
-    \item B
-    \item A
-    \item B
-    \item -
-    \item A
-    \item C
+    \item \textbf{C} -
+    \item \textbf{C} - Partitioning is part of the process of parallelization of an algorithm. In this case, task partitioning.
+    \item \textbf{B} -
+    \item \textbf{C} - MapReduce operates on arbitrary kinds of elements, it is up to the programmer.
+    \item \textbf{D} - Also called the master/slave pattern, farm works over streams since the tasks are distributed by the master.
+    \item \textbf{C} - Map works over collections, the only statement which does the same is C.
+    \item \textbf{B} - In line 4 the statement combines two elements using \texttt{f}, thus we have a reduce pattern.
+    \item \textbf{B} - From the IBM documentation\footnote{\url{https://tinyurl.com/y7qszwxh}} we have:
+    \textit{The omp single directive identifies a section of code that must be run by a single available thread.}
+    \item \textbf{B} - From the moment the stack is popped local variables (not allocated on the heap) become invalid.
+    \item \textbf{A} - Monte Carlo methods, are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results.\footnote{\url{https://en.wikipedia.org/wiki/Monte_Carlo_method}}
+    \item \textbf{D} - RAW, WAR and WAW affect the correctness of the program given the program is only correct if the dependency relationship is uphold.
+    \item \textbf{D} - If we run some iterations of the loop we see \texttt{a[1][0] = a[0][1]}, \texttt{a[1][2] = a[0][3]}, \texttt{a[2][0] = a[1][1]}, \texttt{a[2][2] = a[1][3]}.
+    Thus there are no dependencies between loop iterations.
+    \item \textbf{A} - If we assume the whole program takes $T$ time to run we have:
+    \begin{equation*}
+        \begin{split}
+            0.5 T + 0.5\frac{T}{100} & = 0.505T \\
+            0.1 T + 0.9\frac{T}{3} & = 0.4T \\
+            0.4 T + 0.6\frac{T}{50} & = 0.412T \\
+            0.3 T + 0.7\frac{T}{30} & = 0.323T
+        \end{split}
+    \end{equation*}
+    And so we can conclude that having $70\%$ of the code run 30 times faster is the better choice.
+    \item \textbf{A} -
+    \item \textbf{D} - The span is defined as the critical-path length, that is, the minimum of steps the algorithm must execute.
+    \item \textbf{D} - See Question 15.
+    \item \textbf{B} - A thread cannot acquire a lock if it is not free, thus the holder thread must first release it, synchronizing both events.
+    \item \textbf{D} - When the queue is empty $n=0$ and thus the implication does not apply.
+    \item \textbf{D} - We cannot make guarantees about $T(op)$ based on $T_e(op)$.
+    \item \textbf{D} - The implementation does not ensure progress since the processes can be synchronized and do the following:
+    \begin{enumerate}
+        \item Put their flag up.
+        \item See the other flag as up.
+        \item Put their flag down.
+        \item Since their flag is not up this process repeats \textit{ad eternum}.
+    \end{enumerate}
+    However the implementation provides mutual exclusion since both processes are unable to access the critical region at the same time.
+    \item \textbf{C} - The lock-freedom condition states that when the program threads are run sufficiently long, at least one makes progress.
+    \item \textbf{A} - Iterate the list until we arrive at the possible candidate.
+    \item \textbf{B} - We validate the previous and current nodes to check for deletions and "chain" correctness, that is \texttt{pred.next == curr}.
+    \item \textbf{A} - We see if the key exists, if it does we check if it is not marked for deletion.
+    \item \textbf{B} - The $LockSet$ is initialized to the universal set.
+    \item \textbf{?} -
+    \item \textbf{A} - When a new process enters a system, it must declare the maximum number of instances of each resource type that it may ever claim;
+    clearly, that number may not exceed the total number of resources in the systems.\footnote{\url{https://en.wikipedia.org/wiki/Banker's_algorithm}}
+    \item \textbf{C} - See the labs.
 \end{enumerate}
 
 \end{document}
